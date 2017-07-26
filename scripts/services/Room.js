@@ -7,10 +7,11 @@
 
 		Room.all = rooms;
 
-		Room.add = function(room) {
-			// This nests the room in a unique key???
-			rooms.$add(room);
-			// rooms.push(room)
+		// Add a new chat room
+		Room.addRoom = function(roomName) {
+			rooms.$add({
+				name: roomName
+			});
 		};
 
 		return Room;

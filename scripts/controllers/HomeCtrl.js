@@ -3,28 +3,26 @@
 		var home = this;
 		home.room = Room;
 		home.rooms = Room.all;
-		// home.newRoom = 'default';
 
 		home.openModal = function() {
 
-			//home.newRoom = 'default';
-
 			var modalInstance = $uibModal.open({
 				templateUrl: '/templates/modalContent.html',
-				controller: 'ModalCtrl as modal',
-				resolve: {
-					newRoom: function() {
-						return home.newRoom;
-					}
-				}
-				
+				controller: 'ModalCtrl as modal'
+				// How does resolve work???
+				// resolve: {
+				// 	newRoom: function() {
+				// 		return home.newRoom;
+				// 	}
+				// }	
 			});
 
-			modalInstance.result.then(function (enteredRoomName) {
-			  home.newRoom = enteredRoomName;
-			}, function () {
-			  $log.info('Modal dismissed at: ' + new Date());
-			});
+			// Don't understand this
+			// modalInstance.result.then(function (enteredRoomName) {
+			//   home.newRoom = enteredRoomName;
+			// }, function () {
+			//   $log.info('Modal dismissed at: ' + new Date());
+			// });
 		}
 	}
 

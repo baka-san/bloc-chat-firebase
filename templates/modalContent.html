@@ -5,15 +5,12 @@
 <div class="modal-body">
 	<div class="form-group">
 		<label for="newRoom">Enter a room name</label>
-		<input type="text" class="form-control" id="newRoom" ng-model="home.newRoom">
+		<input type="text" class="form-control" id="newRoom" ng-model="roomName">
 	</div>
 </div>
 
 <div class="modal-footer">
-	<button class="btn btn-primary" ng-click="accept()">OK</button>
-	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-
-	<h3>{{ home.newRoom }}</h3>
-
+	<button class="btn btn-primary" ng-click="modal.acceptRoom(roomName)">Create room</button>
+	<button class="btn btn-warning" ng-click="modal.cancel()">Cancel</button>
 </div>
 	

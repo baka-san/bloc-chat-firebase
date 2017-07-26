@@ -1,14 +1,22 @@
 (function() {
-	function ModalCtrl($scope, $uibModalInstance, newRoom) {
+	function ModalCtrl($uibModalInstance, Room) {
+		var modal = this;
+		// $scope.newRoom = newRoom;
 
-		$scope.newRoom = newRoom;
-		
-		$scope.accept = function() {
-			// alert(newRoom);	
-			$uibModalInstance.close($scope.newRoom);
+		// Accept the room entered in the input bar
+		modal.acceptRoom = function(roomName) {
+			Room.addRoom(roomName);
+			// What about the return value here???
+			$uibModalInstance.close();
 		};
+		
+		// modal.accept = function() {
+		// 	// What about the return value here???
+		// 	// $uibModalInstance.close(newRoom);
+		// };
 
-		$scope.cancel = function() {
+		// Exit the modal window
+		modal.cancel = function() {
 			$uibModalInstance.dismiss('cancel');
 		};
 
@@ -17,5 +25,4 @@
 	angular
 		.module('blocChat')
 		.controller('ModalCtrl', ModalCtrl);
-
 })();
