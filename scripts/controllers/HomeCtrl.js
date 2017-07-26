@@ -2,7 +2,9 @@
 	function HomeCtrl(Room, $uibModal, $log, $document) {
 		var home = this;
 		home.room = Room;
-		home.rooms = Room.all;
+		// home.activeRoom = 
+		// home.rooms = Room.all;
+
 
 		home.openModal = function() {
 

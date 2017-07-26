@@ -15,7 +15,7 @@
 
 			<!-- Rooms -->
 			<div class="row">
-				<div class="col-xs-12" ng-repeat="room in home.rooms">
+				<div class="col-xs-12" ng-repeat="room in home.room.all">
 					<p>{{ room.name }}</p>	
 
 	<!-- 				<ul class="list-group" ng-repeat="room in home.rooms">
@@ -27,7 +27,18 @@
 			</div>
 		</aside>
 		<main class="col-xs-8">
-			
+			<div class="panel panel-heading">
+				<h3>home.room.name[]</h3>
+			</div>
+			<div class="panel panel-body message">
+				<h5>Person 1</h5>
+				<p>Here is what I have to say to you.</p>
+			</div>
+			<div class="panel panel-body message">
+				<h5>Person 2</h5>
+				<p>Here is what I have to say to you.</p>
+			</div>
+
 		</main>
 	</div>
 
