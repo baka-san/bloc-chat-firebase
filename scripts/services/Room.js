@@ -7,6 +7,12 @@
 
 		Room.all = rooms;
 
+		Room.add = function(room) {
+			// This nests the room in a unique key???
+			rooms.$add(room);
+			// rooms.push(room)
+		};
+
 		return Room;
 	}
 

@@ -1,3 +1,22 @@
-<div ng-repeat="room in home.rooms">
+<div class="container-fluid">
+	<div class="row">
+		<!-- <div class="col-xs-3"> -->
+			<div class="col-sm-8">
+				<p class="alert alert-success">COL-SM-8</p>
+			</div>
+			<div class="col-sm-4">
+				<p class="alert alert-success">COL-SM-4</p>
+			</div>
+		<!-- </div> -->
+	</div>
+
+</div>
+<!-- <div ng-repeat="room in home.rooms">
 	<p>{{ room }}</p>
 </div>
+ -->
+<button class="btn" ng-click="home.openModal()">Open me!</button>
+<!-- <button class="btn" ng-click="home.room.add({ 'foo' : 'bar' })">Open me!</button> -->
+
+<h3>{{ home.newRoom }}</h3>
+

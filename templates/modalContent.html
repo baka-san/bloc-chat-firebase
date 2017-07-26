@@ -1,0 +1,19 @@
+<div class="modal-header">
+	<h3>Create a New Room</h3>
+</div>
+
+<div class="modal-body">
+	<div class="form-group">
+		<label for="newRoom">Enter a room name</label>
+		<input type="text" class="form-control" id="newRoom" ng-model="home.newRoom">
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="accept()">OK</button>
+	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+
+	<h3>{{ home.newRoom }}</h3>
+
+</div>
+	
