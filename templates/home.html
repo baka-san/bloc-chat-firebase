@@ -1,18 +1,36 @@
 <div class="container-fluid">
 	<div class="row">
-		<!-- <div class="col-xs-3"> -->
-			<div class="col-sm-8">
-				<p class="alert alert-success">COL-SM-8</p>
+
+		<!-- Sidebar -->
+		<aside class="col-xs-4 sidebar">
+
+			<!-- Aside title -->
+			<div class="row aside-title">
+				<h2 class="col-xs-7">Bloc Chat</h2
+				><div class="col-xs-5 ">
+					<button class="btn" ng-click="home.openModal()">New room</button>
+				</div>
+				
 			</div>
-			<div class="col-sm-4">
-				<p class="alert alert-success">COL-SM-4</p>
+
+			<!-- Rooms -->
+			<div class="row">
+				<div class="col-xs-12" ng-repeat="room in home.rooms">
+					<p>{{ room.name }}</p>	
+
+	<!-- 				<ul class="list-group" ng-repeat="room in home.rooms">
+						<li class="list-group-item">
+							{{ room.name }}
+						</li>
+					</ul> -->
+				</div>
 			</div>
-		<!-- </div> -->
+		</aside>
+		<main class="col-xs-8">
+			
+		</main>
 	</div>
 
 </div>
-<div ng-repeat="room in home.rooms">
-	<p>{{ room }}</p>
-</div>
 
-<button class="btn" ng-click="home.openModal()">Open me!</button>
+

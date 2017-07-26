@@ -1,7 +1,49 @@
-.row {
-	background-color: red;
+aside {
+	background-color: grey;
+	height: 100rem;
 }
 
-div.alert {
-	
+main {
+	background-color: lightgrey;
+	height: 100rem;
 }
+
+/* Align the aside title and button*/
+.aside-title {
+	display: flex;
+	align-items: flex-end;
+	margin-top: 5rem;
+	margin-bottom: 3rem;
+}
+
+/* Remove extra space from aside title */
+.aside-title > h2 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	vertical-align: : bottom;
+}
+
+
+
+
+
+
+
+
+
+
+/* * {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+*/
+/*.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}*/
