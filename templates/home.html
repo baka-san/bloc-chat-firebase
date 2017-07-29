@@ -16,7 +16,7 @@
 			<!-- Rooms -->
 			<div class="row">
 				<div class="col-xs-12" ng-repeat="room in home.room.all">
-					<p>{{ room.name }}</p>	
+					<p ng-click="home.activeRoom = room.name">{{ room.name }}</p>	
 
 	<!-- 				<ul class="list-group" ng-repeat="room in home.rooms">
 						<li class="list-group-item">
@@ -28,17 +28,18 @@
 		</aside>
 		<main class="col-xs-8">
 			<div class="panel panel-heading">
-				<h3>home.room.name[]</h3>
+				<!-- <h3>{{ home.activeRoom[0].name }}</h3> -->
+				<h3>{{ home.activeRoom }}</h3>
+ 
 			</div>
 			<div class="panel panel-body message">
-				<h5>Person 1</h5>
+				<h5>Person 1</h5>.
 				<p>Here is what I have to say to you.</p>
 			</div>
 			<div class="panel panel-body message">
 				<h5>Person 2</h5>
-				<p>Here is what I have to say to you.</p>
+				<p>Thanks, that was very insightful.</p>
 			</div>
-
 		</main>
 	</div>
 
