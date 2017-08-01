@@ -1,8 +1,9 @@
 (function() {
-	function HomeCtrl($scope, $uibModal, Room, Message) {
-		var home = this;
+	function HomeCtrl($uibModal, $cookies, Room, Message) {
+		var home = this; 
 		home.room = Room;
 		home.activeRoom = null;
+		home.currentUser = $cookies.get('blocChatCurrentUser');
 
 		// Not a good approach
 		// $scope.$watch('home.activeRoom', 
@@ -17,7 +18,7 @@
 
 		home.openModal = function() {
 			var modalInstance = $uibModal.open({
-				templateUrl: '/templates/modalContent.html',
+				templateUrl: '/templates/newRoomModal.html',
 				controller: 'ModalCtrl as modal'
 			});
 		}

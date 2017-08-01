@@ -8,11 +8,17 @@
 			$uibModalInstance.close();
 		};
 
+		// Accept the entered username
+		modal.setUsername = function(username) {
+			if(username) {
+				$uibModalInstance.close(username);
+			}
+		};
+
 		// Exit the modal window
 		modal.cancel = function() {
 			$uibModalInstance.dismiss('cancel');
 		};
-
 	}
 
 	angular
