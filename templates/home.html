@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="row">
+	<div class="row row1">
 
 		<!-- Sidebar -->
 		<aside class="col-xs-4 sidebar">
@@ -29,6 +29,13 @@
 			<div class="panel panel-body message" ng-repeat="message in home.messages">
 				<h5>{{ message.username }}  -  {{ message.sentAt }}</h5>
 				<p>{{ message.content }}</p>
+			</div>
+
+			<div class="send-box-container" ng-show="home.activeRoom">
+				<div class="form-group send-box col-xs-10">
+					<input type="text" class="form-control" id="message" ng-model="message">
+				</div>
+				<button class="btn send-btn col-xs-2" ng-click="">Send</button>
 			</div>
 		</main>
 	</div>

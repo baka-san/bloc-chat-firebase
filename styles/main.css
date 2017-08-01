@@ -1,11 +1,20 @@
+/* Force chat to full size of screen */
+html, body {
+	height: 100%;
+}
+
+/* Force chat to full size of screen */
+.container-fluid, aside, main, .row1 {
+    overflow-y: auto;
+    height:100%;
+}
+
 aside {
 	background-color: grey;
-	height: 100rem;
 }
 
 main {
 	background-color: lightgrey;
-	height: 100rem;
 }
 
 /* Align the aside title and button*/
@@ -23,9 +32,19 @@ main {
 	vertical-align: : bottom;
 }
 
+/* Move message box to bottom of page */
+.send-box-container {
+	position: absolute;
+	bottom: 0;
+	left: 15px;
+	right: 15px;
 
+}
 
-
+/* Make send bar wider */
+.send-box {
+	padding: 0 !important;
+}
 
 
 
