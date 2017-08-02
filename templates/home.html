@@ -27,15 +27,15 @@
 
 			<!-- Messages -->
 			<div class="panel panel-body message" ng-repeat="message in home.messages">
-				<h5>{{ message.username }}  -  {{ message.sentAt }}</h5>
+				<h5>{{ message.username }}  -  {{ home.dateAndTime(message.sentAt) }}</h5>
 				<p>{{ message.content }}</p>
 			</div>
 
 			<div class="send-box-container" ng-show="home.activeRoom">
 				<div class="form-group send-box col-xs-10">
-					<input type="text" class="form-control" id="newMessageText" ng-model="newMessageText">
+					<input type="text" class="form-control" id="newMessageText" ng-model="home.newMessageText" ng-init="dumb">
 				</div>
-				<button class="btn send-btn col-xs-2" ng-click="home.sendMessage(newMessageText)">Send</button>
+				<button class="btn send-btn col-xs-2" ng-click="home.sendMessage()" ng-disabled="!home.newMessageText">Send</button>
 			</div>
 		</main>
 	</div>

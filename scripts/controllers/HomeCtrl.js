@@ -1,8 +1,7 @@
 (function() {
-	function HomeCtrl($uibModal, $cookies, Room, Message) {
+	function HomeCtrl($scope, $uibModal, $cookies, Room, Message) {
 		var home = this; 
 		home.room = Room;
-		home.activeRoom = null;
 		home.currentUser = $cookies.get('blocChatCurrentUser');
 
 		home.setActiveRoom = function(room) {
@@ -17,11 +16,11 @@
 			});
 		}
 
-		home.sendMessage = function (newMessageText) {
+		home.sendMessage = function () {
 
 			// Create a message object for database
 			var newMessage = {
-				content: newMessageText,
+				content: home.newMessageText,
 				roomId: home.activeRoom.$id,
 				sentAt: firebase.database.ServerValue.TIMESTAMP,
 				username: home.currentUser
@@ -29,11 +28,14 @@
 
 			// Upload to firebase
 			Message.send(newMessage);
+
+			// Clear the submit bar
+			home.newMessageText = "";
 		};
 
-		// home.dateAndTime = function(timestamp) {
-		// 	return Message.formatDateAndTime(timestamp);
-		// };
+		home.dateAndTime = function(timestamp) {
+			return Message.formatDateAndTime(timestamp);
+		};
 	}
 
 	angular

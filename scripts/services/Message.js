@@ -16,10 +16,10 @@
     };
 
     // Convert firebase timestamp into date and time
-    // Message.formatDateAndTime = function(timestamp) {
-    //   sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-    //   sfd.format(new Date(timestamp));
-    // };
+    Message.formatDateAndTime = function(timestamp) {
+      var date = new Date(timestamp);
+      return date.toUTCString();
+    };
 
     return Message;
   }
