@@ -5,12 +5,6 @@
 		home.activeRoom = null;
 		home.currentUser = $cookies.get('blocChatCurrentUser');
 
-		// Not a good approach
-		// $scope.$watch('home.activeRoom', 
-		// 	function(newActiveRoom, oldActiveRoom) {
-		// 	home.messages = Message.getByRoomId(newActiveRoom['$id']);
-		// });
-
 		home.setActiveRoom = function(room) {
 			home.activeRoom = room;
 			home.messages = Message.getByRoomId(home.activeRoom.$id);
@@ -22,6 +16,24 @@
 				controller: 'ModalCtrl as modal'
 			});
 		}
+
+		home.sendMessage = function (newMessageText) {
+
+			// Create a message object for database
+			var newMessage = {
+				content: newMessageText,
+				roomId: home.activeRoom.$id,
+				sentAt: firebase.database.ServerValue.TIMESTAMP,
+				username: home.currentUser
+			};
+
+			// Upload to firebase
+			Message.send(newMessage);
+		};
+
+		// home.dateAndTime = function(timestamp) {
+		// 	return Message.formatDateAndTime(timestamp);
+		// };
 	}
 
 	angular
