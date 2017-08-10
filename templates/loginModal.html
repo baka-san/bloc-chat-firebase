@@ -1,0 +1,15 @@
+<div class="modal-header">
+	<h3>Please set a username</h3>
+</div>
+
+<div class="modal-body">
+	<div class="form-group">
+		<label for="newRoom">This name will appear when you send messages</label>
+		<input type="text" class="form-control" id="username" ng-model="username">
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="modal.setUsername(username)" ng-disabled="!username">Set username</button>
+</div>
+	

@@ -4,7 +4,7 @@
 		var auth = this;
 
 		auth.login = function(email, password) {
-
+			User.authenticateLogin(email, password);
 		};
 
 	}

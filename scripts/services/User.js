@@ -6,7 +6,7 @@
 		var User = {};
 
 		// Pass credentials to Firebase for login
-		User.authLogin = function(email, password) {
+		User.authenticateLogin = function(email, password) {
 			authObj
 				.$signInWithEmailAndPassword(email, password)
 				.then(function(firebaseUser) {
