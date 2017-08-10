@@ -1,5 +1,5 @@
 (function() {
-	function HomeCtrl($scope, $uibModal, $cookies, Room, Message) {
+	function HomeCtrl($uibModal, $cookies, Room, Message) {
 		var home = this; 
 		home.room = Room;
 		home.currentUser = $cookies.get('blocChatCurrentUser');
