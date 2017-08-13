@@ -18,3 +18,11 @@ html, body {
 .sign-up {
 	margin-top: 5rem;
 }
+
+.login-container {
+	margin: 2rem;
+}
+
+.signup-container {
+	margin: 2rem;
+}

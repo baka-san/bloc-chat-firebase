@@ -1,15 +1,25 @@
-<div class="modal-header">
-	<h3>Please set a username</h3>
+<div class="login-container">
+  <h2>Log into Bloc Chat</h2>
+  <form name="userForm" novalidate> 
+
+  <!-- Email -->
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" name ="email" class="form-control" id="email" placeholder="Enter email" ng-model="modal.email"  required>
+    <p ng-show="userForm.email.$invalid && userForm.email.$dirty" class="help-block">Email not valid</p>
+  </div>
+
+  <!-- Password -->
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" name="password" class="form-control" id="pwd" placeholder="Enter password" ng-model="modal.password" required>
+  </div>
+
+  <!--     <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div> -->
+      <button type="submit" class="btn btn-default" ng-click="modal.loginUser(modal.email, modal.password)" ng-disabled="userForm.$invalid">Log in</button>
+    </form>
+  </div>
 </div>
 
-<div class="modal-body">
-	<div class="form-group">
-		<label for="newRoom">This name will appear when you send messages</label>
-		<input type="text" class="form-control" id="username" ng-model="username">
-	</div>
-</div>
-
-<div class="modal-footer">
-	<button class="btn btn-primary" ng-click="modal.setUsername(username)" ng-disabled="!username">Set username</button>
-</div>
-	

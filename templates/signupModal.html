@@ -1,0 +1,36 @@
+<div class="signup-container">
+  <h2>Sign up for Bloc Chat</h2>
+  <form name="userForm" novalidate> 
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" name ="email" class="form-control" id="email" placeholder="Enter email" ng-model="modal.email"  required>
+      <p ng-show="userForm.email.$invalid && userForm.email.$dirty" class="help-block">Email not valid</p>
+    </div>
+
+    <!-- Confirm email -->
+    <div class="form-group">
+      <label for="confirmEmail">Confirm Email:</label>
+      <input type="email" name="confirmEmail" class="form-control" id="confirmEmail" placeholder="Confirm email" ng-model="modal.confirmEmail" required>
+      <p ng-show="(modal.email !== modal.confirmEmail) && userForm.confirmEmail.$dirty" class="help-block">Emails aren't the same.</p>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" name="password" class="form-control" id="pwd" placeholder="Enter password" ng-model="modal.password" ng-minlength="6" required>
+      <p ng-show="userForm.password.$error.minlength" class="help-block">Password must be at least 6 characters</p>
+    </div>
+
+    <!-- Confirm password -->
+    <div class="form-group">
+      <label for="confirmPwd">Confirm Password:</label>
+      <input type="password" name="confirmPwd" class="form-control" id="confirmPwd" placeholder="Confirm password" ng-model="modal.confirmPassword" required>
+      <p ng-show="(modal.password !== modal.confirmPassword) && userForm.confirmPwd.$dirty" class="help-block">Passwords aren't the same.</p>
+    </div>
+<!--     <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div> -->
+    <button type="submit" class="btn btn-default" ng-click="modal.createUser(modal.email, modal.password)" ng-disabled="userForm.$invalid || (modal.password !== modal.confirmPassword) || (modal.email !== modal.confirmEmail)">Sign up</button>
+  </form>
+</div>
