@@ -1,13 +1,14 @@
 (function() {
 
-	function User($firebaseAuth) {
+	function Auth($firebaseAuth) {
 
 		authObj = $firebaseAuth();
-		var User = {};
+		var Auth = {};
 
 		// Pass credentials to Firebase to create a new user
-		User.createUserFirebase = function(email, password) {
-			authObj.$createUserWithEmailAndPassword(email, password)
+		Auth.createUserFirebase = function(email, password) {
+			authObj
+				.$createUserWithEmailAndPassword(email, password)
 			  .then(function(firebaseUser) {
 			    console.log("User " + firebaseUser.uid + " created successfully!");
 			  }).catch(function(error) {
@@ -16,7 +17,7 @@
 		};
 
 		// Pass credentials to Firebase for login
-		User.loginFirebase = function(email, password) {
+		Auth.loginFirebase = function(email, password) {
 			authObj
 				.$signInWithEmailAndPassword(email, password)
 				.then(function(firebaseUser) {
@@ -27,11 +28,20 @@
 			  });
 		};
 
-		return User;
+		// Wait for user to sign in
+		Auth.waitForSignInFirebase = function() {
+			return authObj.$waitForSignIn();
+		};
+
+		// Require a user to sign in
+		Auth.requireSignInFirebase = function() {
+			return authObj.$requireSignIn();
+		};
+
+		return Auth;
 	}
 
 	angular
 		.module('blocChat')
-		.factory('User', User);
-
+		.factory('Auth', Auth);
 })();

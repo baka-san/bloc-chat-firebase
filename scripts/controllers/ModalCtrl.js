@@ -1,8 +1,8 @@
 (function() {
-	function ModalCtrl($uibModalInstance, Room, User) {
+	function ModalCtrl($uibModalInstance, Room, Auth) {
 		var modal = this;
 		modal.room = Room;
-		modal.user = User;
+		modal.auth = Auth;
 
 		// modal.authObj = $firebaseAuth();
 
@@ -21,13 +21,13 @@
 
 		// Create a user
 		modal.createUser = function(email, password) {
-			modal.user.createUserFirebase(email, password);
+			modal.auth.createUserFirebase(email, password);
 			$uibModalInstance.close();
 		};
 
 		// Log in the user
 		modal.loginUser = function(email, password) {
-			modal.user.loginFirebase(email, password);
+			modal.auth.loginFirebase(email, password);
 			$uibModalInstance.close();
 		};
 

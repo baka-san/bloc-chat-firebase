@@ -1,3 +1,6 @@
+// NOT CURRENTLY IN USE
+
+
 (function(){ 
 
 	function AuthCtrl($firebaseAuth, User) {
