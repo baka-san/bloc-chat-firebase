@@ -23,5 +23,5 @@
 
 	angular
 		.module('blocChat')
-		.run(BlocChatCookies);
+		//.run(BlocChatCookies);
 })();

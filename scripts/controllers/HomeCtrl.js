@@ -1,8 +1,9 @@
 (function() {
-	function HomeCtrl($uibModal, $cookies, Room, Message) {
+	function HomeCtrl($uibModal, $cookies, Room, Message, Auth) {
 		var home = this; 
 		home.room = Room;
-		home.currentUser = $cookies.get('blocChatCurrentUser');
+		// home.currentUser = $cookies.get('blocChatCurrentUser');
+		//home.currentUser = Auth.
 
 		home.setActiveRoom = function(room) {
 			home.activeRoom = room;
