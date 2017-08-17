@@ -1,6 +1,14 @@
 <div class="signup-container">
   <h2>Sign up for Bloc Chat</h2>
   <form name="userForm" novalidate> 
+
+    <!-- Username -->
+    <div class="form-group">
+      <label for="username">Name:</label>
+      <input type="text" name ="username" class="form-control" id="username" placeholder="What's your name?" ng-model="modal.username"  required>
+      <p ng-hide="true" class="help-block">Username not valid</p>
+    </div>
+
     <!-- Email -->
     <div class="form-group">
       <label for="email">Email:</label>
@@ -31,6 +39,6 @@
 <!--     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
     </div> -->
-    <button type="submit" class="btn btn-default" ng-click="modal.createUser(modal.email, modal.password)" ng-disabled="userForm.$invalid || (modal.password !== modal.confirmPassword) || (modal.email !== modal.confirmEmail)">Sign up</button>
+    <button type="submit" class="btn btn-default" ng-click="modal.createUser(modal.email, modal.password, modal.username)" ng-disabled="userForm.$invalid || (modal.password !== modal.confirmPassword) || (modal.email !== modal.confirmEmail)">Sign up</button>
   </form>
 </div>

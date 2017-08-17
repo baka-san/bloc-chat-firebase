@@ -20,8 +20,8 @@
 		};
 
 		// Create a user
-		modal.createUser = function(email, password) {
-			modal.auth.createUserFirebase(email, password);
+		modal.createUser = function(email, password, username) {
+			modal.auth.createUserFirebase(email, password, username);
 			$uibModalInstance.close();
 		};
 

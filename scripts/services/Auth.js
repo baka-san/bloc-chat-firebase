@@ -8,15 +8,21 @@
 		// Set the current user
 		//Auth.currentUser = authObj.auth()
 		// Pass credentials to Firebase to create a new user
-		Auth.createUserFirebase = function(email, password) {
+		Auth.createUserFirebase = function(email, password, username) {
 			authObj
 				.$createUserWithEmailAndPassword(email, password)
-				//what's available to firebaseUser
-				// Save to table here
 			  .then(function(firebaseUser) {
 			    console.log("User " + firebaseUser.uid + " created successfully!");
 
+			    // Save user to database
+			    // what's available to firebaseUser??
+			  	var ref = firebase.database().ref().child("users");
 
+			  	ref.child(firebaseUser.uid).set({
+        		username: username,
+        		email: email
+          	//some more user data
+          });    
 			  })
 			  .catch(function(error) {
 			    console.error("Error: ", error);
@@ -30,13 +36,6 @@
 				.then(function(firebaseUser) {
 			  	console.log("Signed in as:", firebaseUser.uid);
 
-			  	// // if rootscope is set
-			  	// if ($stateParams.toWhere != null) {
-			  	//   $state.go($stateParams.toWhere.name);
-			  	// } 
-			  	// else {
-			  	//   $state.go('home');
-			  	// }
 				})		
 				.catch(function(error) {
 			  	console.error("Authentication failed:", error);
