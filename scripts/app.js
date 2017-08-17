@@ -43,12 +43,21 @@
 			    // We can catch the error thrown when the $requireSignIn promise is rejected
 			    // and redirect the user back to the home page
 			    if (error === "AUTH_REQUIRED") {
-			   	  alert("Must sign in");
-			      $state.go("landing");
+			   	  	alert("Must sign in");
+			      	$state.go("landing");
 			    }
+			    // else {
+			    // 	$state.go("home");
+			    // }
 		  	});
-		  	$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams, error) {
-		  		$state.go("home");
-		  	});
-		}]);
+		}])
+		//just $stateChange????
+
+		// .run(["$rootScope", "$state", function($rootScope, $state) {
+		//   	$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams, error) {
+		//   			$state.go("home");
+		// 	});
+		// }]);
+
+		
 })();

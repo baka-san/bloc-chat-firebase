@@ -11,9 +11,12 @@
 		Auth.createUserFirebase = function(email, password) {
 			authObj
 				.$createUserWithEmailAndPassword(email, password)
+				//what's available to firebaseUser
+				// Save to table here
 			  .then(function(firebaseUser) {
 			    console.log("User " + firebaseUser.uid + " created successfully!");
-					// $state.go('home');
+
+
 			  })
 			  .catch(function(error) {
 			    console.error("Error: ", error);
