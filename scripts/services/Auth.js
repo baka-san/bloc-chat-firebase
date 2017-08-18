@@ -1,12 +1,23 @@
 (function() {
 
-	function Auth($firebaseAuth) {
+	function Auth($firebaseAuth, $state) {
 
 		authObj = $firebaseAuth();
 		var Auth = {};
 
 		// Set the current user
-		//Auth.currentUser = authObj.auth()
+		Auth.currentUser = firebase.auth().onAuthStateChanged(function(user) {
+  		// User is signed in.
+  		// console.log("inside Auth.currentUser")
+  		if (user) {
+    		return user
+  		}
+  		// No user is signed in.
+  		else {
+    		return null;
+  		}
+  	});
+
 		// Pass credentials to Firebase to create a new user
 		Auth.createUserFirebase = function(email, password, username) {
 			authObj
@@ -23,6 +34,9 @@
         		email: email
           	//some more user data
           });    
+
+			  	// Go to chat dashboard page after sign up
+          $state.go("home");
 			  })
 			  .catch(function(error) {
 			    console.error("Error: ", error);
@@ -35,6 +49,9 @@
 				.$signInWithEmailAndPassword(email, password)
 				.then(function(firebaseUser) {
 			  	console.log("Signed in as:", firebaseUser.uid);
+
+		  	// Go to chat dashboard page after logging in
+        $state.go("home");
 
 				})		
 				.catch(function(error) {

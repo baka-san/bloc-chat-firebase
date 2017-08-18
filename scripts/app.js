@@ -38,6 +38,7 @@
 		.module('blocChat', ['ui.router', 'firebase', 
 			'ui.bootstrap', 'ngCookies'])
 		.config(config)
+		// If not logged in, redirect to landing
 		.run(["$rootScope", "$state", function($rootScope, $state) {
 		  	$rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
 			    // We can catch the error thrown when the $requireSignIn promise is rejected
@@ -46,18 +47,16 @@
 			   	  	alert("Must sign in");
 			      	$state.go("landing");
 			    }
-			    // else {
-			    // 	$state.go("home");
-			    // }
 		  	});
 		}])
-		//just $stateChange????
-
-		// .run(["$rootScope", "$state", function($rootScope, $state) {
-		//   	$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams, error) {
-		//   			$state.go("home");
-		// 	});
-		// }]);
-
-		
+		// If logged in and try to navigate to landing, redirect to home
+		.run(["$rootScope", "$state", "Auth", function($rootScope, $state, Auth) {
+		  	$rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams, error) {
+		  		if(Auth.currentUser && toState.name === 'landing') {
+		  			// landing still flickers...
+		  			event.preventDefault();
+		  			$state.go("home");
+		  		}
+			});
+		}]);		
 })();

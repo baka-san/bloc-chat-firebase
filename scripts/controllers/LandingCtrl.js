@@ -1,7 +1,9 @@
 (function(){ 
 
-	function LandingCtrl($uibModal) {
+	function LandingCtrl($uibModal, $state, Auth) {
 		var landing = this;
+		landing.currentUser = Auth.currentUser;
+		// console.log("user = " + Auth.currentUser )
 
 		landing.loginModal = function() {
 			var modalInstance = $uibModal.open({
@@ -16,6 +18,11 @@
 				controller: 'ModalCtrl as modal'
 			});
 		}
+		
+			// if(landing.currentUser) {
+			// 	$state.go("home");
+			// }
+		// }
 	}
 
 	angular
